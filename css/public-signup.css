@@ -133,6 +133,12 @@ body{
     box-shadow: 9px 8px 16px -4px rgba(0,0,0,0.2);  
 }
 
+.group-form input::placeholder{
+    font-style: italic;
+    font-size: 14px;
+    color: var(--main-text)
+}
+
 .link{
     color: var(--main-text);
     font-family: var(--font-regular);
