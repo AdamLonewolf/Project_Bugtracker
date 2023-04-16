@@ -111,7 +111,11 @@ body{
     margin:0px 20px;
 }
 
-.btn-add a{
+#logout{
+    margin:0px 10px;
+}
+
+.btn-add a, #logout{
     text-decoration: none;
     background-color: var(--bg-prim);
     color: var(--second-text);

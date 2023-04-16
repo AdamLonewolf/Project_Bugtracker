@@ -58,7 +58,7 @@ body{
     float: right;
 }
 
-.my-navbar .btn-add{
+.my-navbar .save-form,#logout{
     display: block;
 }
 
@@ -97,11 +97,12 @@ body{
    margin: 0px 20px;
 }
 
-.btn-add{
-    margin:0px 20px;
+
+#logout{
+    margin:0px 10px;
 }
 
-.save-form a{
+.save-form a, #logout{
     text-decoration: none;
     background-color: var(--bg-prim);
     color: var(--second-text);
