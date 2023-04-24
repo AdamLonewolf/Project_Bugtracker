@@ -28,8 +28,10 @@ $(document).ready(function(){
           })
           .then(data => {
             console.log(data); // affiche la réponse complète dans la console
-            const token = data.result.token; //Je récupère le token 
+            const token = data.result.token; //Je récupère le token
+            const user_id = data.result.id; //Je récupère l'id de l'utilisateur 
             sessionStorage.setItem("User_token",token) //On conserve la valeur de ce token dans une session (navigateur)
+            sessionStorage.setItem("User_id",user_id) 
           })
           .then(() => {
             alert('Bienvenue sur Bugtracker ' + username + ' !');

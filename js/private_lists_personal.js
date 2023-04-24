@@ -126,7 +126,8 @@ $(document).ready(function(){
 
     async function BugList(){
         var token = sessionStorage.getItem("User_token");
-        var url = `http://greenvelvet.alwaysdata.net/bugTracker/api/list/${token}/0` //Retourne la liste de bugs complète
+        var user_id = sessionStorage.getItem('User_id');
+        var url = `http://greenvelvet.alwaysdata.net/bugTracker/api/list/${token}/${user_id}` //Retourne la liste de bugs assignés à l'utilisateur
         var url_user = `http://greenvelvet.alwaysdata.net/bugTracker/api/users/${token}`
 
         // Requête pour récupérer la liste des utilisateurs
@@ -142,7 +143,7 @@ $(document).ready(function(){
             sessionStorage.setItem('users',JSON.stringify(user)) //Je convertis les informations en chaînes de caractères JSON avant de les stocker
         })
 
-        // Requête pour récupérer la liste des bugs
+        // Requête pour récupérer la liste des bugs assignés à l'utilisateur
 
         await fetch(url, {
             method: "GET"
@@ -329,5 +330,3 @@ $(document).ready(function(){
     BugList();
 
 })
-
-

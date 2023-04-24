@@ -43,8 +43,12 @@ $(document).ready(function(){
         $('#confirm-password').css('border', '2px solid #20262E');
       }
 
-      //Opération asynchrone pour l'inscription 
+      //Vérification des champs password et confirm password avant de lancer la requête
 
+      if(!password < 5 &&  password == password_confirm){
+
+      //--Fonction pour l'inscription de l'utilisateur--//
+        
       async function signUp(){
         var username = $('#username').val(); 
         var password = $('#password').val(); 
@@ -63,9 +67,15 @@ $(document).ready(function(){
             }
             throw new Error('Une erreur est survenue')
         })
-        .then(data => console.log(data))
+        .then(data => {
+          console.log(data)
+          const token = data.result.token; //Je récupère le token 
+          const user_id = data.result.id; //Je récupère l'id de l'utilisateur 
+          sessionStorage.setItem("User_token",token) //On conserve la valeur de ce token dans une session (navigateur)    
+          sessionStorage.setItem("User_id",user_id)
+        })
         .then(() => {
-          window.location.href = "login.html"
+          window.location.href = "list.html"
         })
         .catch(error => {
           alert('Une erreur est survenue');
@@ -77,6 +87,9 @@ $(document).ready(function(){
 
       signUp(); //On appelle la fonction 
 
+    } else {
+      alert('vos identifiants sont incorrects');
+    }
     
 
     });
