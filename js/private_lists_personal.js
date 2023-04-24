@@ -15,17 +15,13 @@ $(document).ready(function(){
                 method:"GET"
             })
             .then(Response => {
-                if(Response.ok){
-                    sessionStorage.removeItem("User_token"); //On écrase le token dans la session du navigateur
-                    sessionStorage.removeItem("User_id"); //On écrase l'id de l'utilisateur dans la session du navigateur
-                    alert('Vous avez été déconnecté');
-                    return Response.json();
-                } else {
-                    throw new Error('Une erreur est survenue')
-                }
+                sessionStorage.removeItem("User_token"); //On écrase le token dans la session du navigateur
+                sessionStorage.removeItem("User_id"); //On écrase l'id de l'utilisateur dans la session du navigateur
+                alert('Vous avez été déconnecté');
+                return Response.json();
             })
             .then(() => {
-                window.location.href = "login.html"
+                window.location.href = "index.html"
             })
             .catch(error => {
                 console.log(error);
@@ -66,7 +62,7 @@ $(document).ready(function(){
                 
             })
             .then(() => {
-                window.location.href = "login.html"
+                window.location.href = "index.html"
             })
             .catch(error => {
                 console.log(error);
