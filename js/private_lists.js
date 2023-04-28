@@ -83,7 +83,7 @@ $(document).ready(function(){
 
             //On fait une condition qui déterminera si l'utilisateur a dépassé le temps limite.
 
-            if(secondsInactivity > timeLimit){
+            if(secondsInactivity == timeLimit){
                 clearInterval(interval); //Une fois le temps limite atteint, on arrête l'intervalle
                 logoutActivity();
             }
@@ -180,7 +180,7 @@ $(document).ready(function(){
 
                     //Si l'état du bug (sa valeur) correspond à l'une des valeurs des options du select, il est selectionné
 
-                    if(options.val() == etat){
+                    if(options.val()  == etat){
                         options.prop('selected', true); //il ajoute à cet element la propriété selected
                     }
 
@@ -194,9 +194,18 @@ $(document).ready(function(){
                 var bug_id = data.result.bug[i].id;
                 var titre = data.result.bug[i].title;
                 var description = data.result.bug[i].description;
-                var date =new Date(data.result.bug[i].timestamp * 1000) // Je convertis la valeur numérique en millisecondes
-                var dateDay = date.toLocaleDateString() 
-                var dateTime = date.toLocaleTimeString()
+                var createDate = new Date(data.result.bug[i].timestamp * 1000) // Je convertis la valeur numérique en millisecondes
+                
+                // Options pour l'affichage (il s'agit du format des différents éléments de la date)
+                var options = {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric'
+                };
+                var date = createDate.toLocaleString('fr-FR', options); // Obtenir la date au format français
                 var developpeur = user[data.result.bug[i].user_id]; //retourne le nom de l'utilisateur 
 
 
@@ -209,7 +218,7 @@ $(document).ready(function(){
                 // On ajoute les informations du bug dans les cellules <td> de la ligne <tr>
 
                 $("<td>").html(titre + "<br>" + description).appendTo(newRow);
-                $("<td>").text(dateDay + " " + dateTime).appendTo(newRow);
+                $("<td>").text(date).appendTo(newRow);
                 $("<td>").text(developpeur).appendTo(newRow);
                 $("<td>").html(select).appendTo(newRow);
                 $("<td>").html("<button id='delete-btn'><i class='fa-solid fa-trash-can' style='color: #ffffff;'></i>Supprimer</button>").appendTo(newRow);

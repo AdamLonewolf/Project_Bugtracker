@@ -178,3 +178,23 @@ body{
     transition: 0.5s ease;
     background-color: var(--special-blue);
 }
+
+
+/*--Media Queries--*/
+
+/*Téléphones à petit écran*/
+
+@media screen and (max-width: 375px) { 
+    .login-container{
+    width: 350px;
+    height: 550px;
+    position: absolute;
+    border-radius: 12px;
+    margin: 0 auto;
+    padding: 10px 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-prim);
+}
+}

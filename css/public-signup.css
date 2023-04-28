@@ -180,3 +180,37 @@ body{
     transition: 0.5s ease;
     background-color: var(--special-blue);
 }
+
+
+/*--Media Queries--*/
+
+/*Téléphones à petit écran*/
+
+@media screen and (max-width: 375px) { 
+    .signup-container{
+    width: 350px;
+    height: 620px;
+    position: absolute;
+    border-radius: 12px;
+    margin: 0 auto;
+    padding: 10px 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-prim);
+}
+
+.btn-signup{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 6px 55px;
+    border: none;
+    outline: none;
+    background-color: var(--bg-prim-button);
+    color: var(--third-text);
+    font-family: var(--font-sbold);
+}
+
+}

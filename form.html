@@ -12,6 +12,13 @@
     <script src="js/form.js"></script>
 </head>
 <body>
+
+    <!--Loader de la page -->
+
+   <div class="loader">  
+    <div class="spinner"></div>
+    <div class="loader-text">Chargement en cours...</div>
+ </div>
     
     <!--Barre de navigation-->
 
@@ -49,7 +56,7 @@
               <div class="col">
                   <div class="page-title">
                       <div class="page-title-text">
-                        <h1>Formulaire dajout de bug</h1>
+                        <h1>Formulaire d'ajout de bug</h1>
                         <h4>Vous rencontrez un nouveau bug ? remplissez le formulaire ci-dessous pour l’ajouter à votre liste</h4>
                       </div>
                       <div class="page-title-image">
@@ -84,9 +91,25 @@
         </div>
         <p>© Bugtracker - 2023</p>
         <div class="social-media">
-          <a href="#"><i class="fa-brands fa-github" style="color: #fcfcfc;"></i></a>
+          <a href="https://github.com/AdamLonewolf"><i class="fa-brands fa-github" style="color: #fcfcfc;"></i></a>
         </div>        
       </div>  
     </footer>
 </body>
+
+<script>
+  const loader = $('.loader'); 
+  //loader sera caché dès que la structure de la page sera chargée
+ $(document).on('DOMContentLoaded', () => {
+   loader.removeClass('hidden'); //Le loader est visible avant l'animation de fondu
+   // Réduit l'opacité pour créer un effet de transition
+   setTimeout(() => {
+     loader.addClass('fondu-out');
+     setTimeout(() => {
+       loader.addClass('hidden');
+     }, 700); // disparition
+   }, 2000);
+});
+</script>
+
 </html>
